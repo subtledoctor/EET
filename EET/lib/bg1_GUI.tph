@@ -283,20 +283,6 @@ menu
 	{
 		bam 'STARTBUT'
 		sequence lua "getCampaignButtonSequence()"
-		area 732 72 249 45
-		pad 10 8 10 8
-		text style "button"
-		text "STRREF_GUI_LOWER_DLC_STORE"
-		enabled "e:IsTouchUI()"
-		action 
-		"
-			startEngine:OnDLCImageClick()
-		"
-	}
-	button
-	{
-		bam 'STARTBUT'
-		sequence lua "getCampaignButtonSequence()"
 		area 732 144 249 45
 		pad 10 8 10 8
 		text style "button"
@@ -504,7 +490,6 @@ menu
 		table		"startCampaignData"
 		var		selectedOpt
 		scrollbar	'GUISCRP'
-		sound		""
 		action		"
 			onCampaignButton(selectedOpt)
 			selectedOpt = 0
@@ -1594,4 +1579,3 @@ end~~~~~
 	END
 	//==========================================================================
 	REPLACE_TEXTUALLY ~^\([ %TAB%]\)\(text "Recent events text will go here."\)~ ~\1--\2~
-	REPLACE_TEXTUALLY ~clickable[ 	]+false~ ~clickable lua "false"~ //fixes Beamdog's wrong syntax

@@ -1,5 +1,5 @@
 /////                                                  \\\\\
-///// KIT files                                        \\\\\
+/////       KIT files                                  \\\\\
 /////                                                  \\\\\
 
 ACTION_FOR_EACH file IN CLASWEAP ABCLASRQ ABCLSMOD ABDCDSRQ ABDCSCRQ ALIGNMNT DUALCLAS KITTABLE BACKSTAB CLSWPBON THIEFSKL CLSRCREQ SNEAKATT CRIPPSTR BEGIN
@@ -558,7 +558,6 @@ ACTION_BASH_FOR ~%patch_dir%/spl~ ~SPPR[1-7][5-9][0-9]\.SPL~ BEGIN //Priest leve
 END
 
 COPY_EXISTING ~HIDESPL.2DA~ ~override~
-	PRETTY_PRINT_2DA
 	REPLACE_TEXTUALLY ~^SPWI93[5-7] .+%LNL%~ ~~ //free 3 level 9 slots (SUMMON_SKELETON_WARRIOR entries)
 	COUNT_2DA_ROWS 4 "cntrow"
 	FOR (cnt = 0; cnt < "%cntrow%"; cnt = cnt + 1) BEGIN
@@ -1892,7 +1891,7 @@ BUT_ONLY
 COPY + ~%MOD_FOLDER%/temp/2da/BGCLATXT.2DA~ ~%MOD_FOLDER%/temp/2da~
 	~%MOD_FOLDER%/temp/2da/SODCLTXT.2DA~ ~%MOD_FOLDER%/temp/2da~
 	PRETTY_PRINT_2DA
-	REPLACE_TEXTUALLY ~^OHTYR_OLD .+[%newline%]+~ ~~
+	REPLACE_TEXTUALLY ~^OHTYR_OLD[%newline%]+~ ~~
 	PATCH_FOR_EACH class IN FIGHTER_MAGE FIGHTER_CLERIC FIGHTER_THIEF FIGHTER_MAGE_THIEF MAGE_THIEF CLERIC_MAGE CLERIC_THIEF FIGHTER_DRUID FIGHTER_MAGE_CLERIC CLERIC_RANGER BEGIN //assign correct biography for multi-class characters
 		REPLACE_TEXTUALLY ~^\(%class%[ ]+[-0-9]+[ ]+[-0-9]+[ ]+[-0-9]+[ ]+[-0-9]+[ ]+[-0-9]+[ ]+\)[-0-9]+~ ~\1 15889~
 	END
