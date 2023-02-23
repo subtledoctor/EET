@@ -1,7 +1,7 @@
 BACKUP ~EET/backup~
 AUTHOR ~K4thos (swit)~
-VERSION ~1.0 RC12 SD1 for mobile 2.5~
-README ~EET/lang/%LANGUAGE%/readme-EET.html~ ~EET/readme-EET.html~
+VERSION ~12sd2 for mobile 2.5~
+//README ~EET/lang/%LANGUAGE%/readme-EET.html~ ~EET/readme-EET.html~
 
 LANGUAGE ~English~
 	~en_US~
@@ -759,6 +759,8 @@ ACTION_FOR_EACH entry IN EET_CMP_TEXT_BG1 EET_CMP_TEXT_SOD EET_CMP_TEXT_SOA EET_
 END
 
 COPY ~%MOD_FOLDER%/base/lua/M_K#EET.lua~ ~override~
+
+COPY ~%MOD_FOLDER%/base/lua/M_K#TBL.lua~ ~override~
 	REPLACE_TEXTUALLY ~\(eetStrings = {\)~ ~\1
 %L_LUA%~
 
@@ -1942,6 +1944,10 @@ END
 
 COPY ~%patch_dir%/spl~ ~override~
 
+//update op318s in SoD dragon breath after rename
+COPY_EXISTING ~BGDGBRHT.SPL~ ~override~
+  LPF ALTER_EFFECT STR_VAR match_resource = ~DRGRBRHT~ resource = ~BGDGBRHT~ END
+	
 /////                                                  \\\\\
 ///// STO                                              \\\\\
 /////                                                  \\\\\
